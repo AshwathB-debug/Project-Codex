@@ -70,7 +70,7 @@ def speakToCody():
       else:
         
         print("Cody: No valid input received :( ")
-        callTts("No valid input received :( ")
+        callTts("No valid input received :( ") 
 
 
 
