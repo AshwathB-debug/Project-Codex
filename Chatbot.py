@@ -4,11 +4,11 @@ import webbrowser
 import os
 from dotenv import load_dotenv
 import pyttsx3
+import streamlit
 
 
 
-
-def userSpeech():
+def userSpeech(): 
   
     recognizer = sr.Recognizer()
 
@@ -21,8 +21,9 @@ def userSpeech():
             message = recognizer.recognize_google(audio)
             #print(f"You said: {message}")
             return message
-            
-        except sr.WaitTimeoutError:  # Catch the timeout exception
+          
+        # Catch the timeout exception   
+        except sr.WaitTimeoutError: 
             print("No speech detected. Please try again.")
             return None
 
@@ -53,7 +54,7 @@ def speakToCody():
           webbrowser.open('http://www.google.com')
         
         
-        if any(statement in userMessage.lower() for statement in listOfWords()):
+        if any(statement in userMessage.lower() for statement in listOfExitWords()):
           convo.send_message(userMessage) 
           print("Cody: " + convo.last.text)
           callTts(convo.last.text)
@@ -72,7 +73,8 @@ def speakToCody():
         callTts("No valid input received :( ")
 
 
-def listOfWords():
+
+def listOfExitWords():
   
     exitStatements = ["bye", "goodbye", "see ya", "that's it for today"]
     return exitStatements
@@ -80,20 +82,26 @@ def listOfWords():
 
 def callTts(message):
     tts = pyttsx3.init()
+    # tts.setProperty('rate', 75)
     voice = tts.getProperty("voices")
-    tts.setProperty("voice", voice[1].id)
+    tts.setProperty("voice", voice[0].id)
     tts.say(message)
     tts.runAndWait()
 
 
 
-if __name__ == "__main__":
-  
+def getApiKey():
   
     load_dotenv()
     APIKEY = os.getenv("APIKEY")
+    return APIKEY
+
+
+
+if __name__ == "__main__":
+  
     
-    genai.configure(api_key=APIKEY) # REMEMBER TO MAKE A ENCRYPTED FILE TO SECURE API KEY
+    genai.configure(api_key=getApiKey()) # REMEMBER TO MAKE A ENCRYPTED FILE TO SECURE API KEY
     
     # Set up the model
     generation_config = {
