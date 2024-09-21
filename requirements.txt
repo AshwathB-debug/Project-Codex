@@ -2,3 +2,6 @@ speechrecognition
 google-generativeai
 pyttsx3
 python-dotenv
+streamlit
+pathlib2
+pyaudio
