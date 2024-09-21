@@ -210,8 +210,10 @@ def main():
     os.system("pip install -r requirements.txt") 
     print("\n Downloaded the required directories \n")
     load_dotenv()
+    # API key for Gemini API
     APIKEY = os.getenv("APIKEY")
-    APIKEY2 = os.getenv("APIKEY2") # API key for weather api
+    # API key for Weather API
+    APIKEY2 = os.getenv("APIKEY2")
     deployToSt(APIKEY) 
 
 
