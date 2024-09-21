@@ -2,7 +2,7 @@
 
 
 ## Project Description
-Project Codex (aka Cody) is developed to help users simplify their day-to-day tasks on their computer through the use of AI. Powered by the Gemini API, this chatbot was made with the intention to help visually impaired people to be able to speak to the chatbot and for it to act like a voice assistant that can do a multitude of tasks from presenting various information.  
+Project Codex (aka Cody) is developed to help users simplify their day-to-day tasks on their computer through the use of AI. Powered by the Gemini API, this chatbot was made with the intention to help visually impaired people to be able to speak to the chatbot and for it to act like a voice assistant that can do a multitude of tasks from presenting various information to aiding the user in different tasks.
 
 
 ## Features
