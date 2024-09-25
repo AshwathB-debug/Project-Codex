@@ -199,7 +199,7 @@ def deployToSt(APIKEY):
             # st.subheader("Chat History")
             storeChat(chat, answer)
 
-    # Create a constant scrollable container for the chat history
+    # scrollable container for the chat history
     chat_history_column = st.columns([1])[0]
     with chat_history_column:
         if st.session_state["History"]:
