@@ -3,31 +3,29 @@ import google.generativeai as genai
 
 class GeminiAPI:
     
-    
-    def joinWordsInOutput(output):
+    # Join words in the sentence from the generated output
+    def joinWordsInOutput(self, output):
     
         arr = []
         for word in output:
             arr.append(word.text)
         response = " ".join(arr)
-
         return response
 
 
     # Set up the model
-    def generationConfig():
+    def generationConfig(self):
         
         generation_config = {
             "temperature": 0.2,
             "top_p": 0.95,
             "top_k": 0,
             "max_output_tokens": 8192}
-
         return generation_config
 
 
     # Sets the settings to block explicit content
-    def safetySettings():
+    def safetySettings(self):
         
         safety_settings = [
             {"category": "HARM_CATEGORY_HARASSMENT",
@@ -41,25 +39,23 @@ class GeminiAPI:
 
             {"category": "HARM_CATEGORY_DANGEROUS_CONTENT",
             "threshold": "BLOCK_MEDIUM_AND_ABOVE"}]
-
         return safety_settings
 
 
-    def genAiModel(chat, apiKey):
+    def genAiModel(self, chat, apiKey):
         
         try:
             
             genai.configure(api_key=apiKey)
-            model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest", generation_config = GeminiAPI.generationConfig(),
-                                        safety_settings = GeminiAPI.safetySettings())
+            model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest", generation_config = self.generationConfig(),
+                                        safety_settings = self.safetySettings())
             convo = model.start_chat(history=[])
             output = convo.send_message(chat, stream=True)
 
-            if "search" and "local" and "file" in GeminiAPI.joinWordsInOutput(output):
+            if "search" and "local" and "file" in self.joinWordsInOutput(output):
                 st.write(LocalFileCalling())
             
-            return GeminiAPI.joinWordsInOutput(output)
-
+            return self.joinWordsInOutput(output)  
 
         except Exception as e:
             print(f"An error occurred {e}")

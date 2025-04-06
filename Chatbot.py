@@ -1,14 +1,11 @@
-import google.generativeai as genai
 from Gemini import GeminiAPI
-from pathlib import Path
-import requests
-import speech_recognition as sr
 import os
 import sys
 from dotenv import load_dotenv
-import pyttsx3
 import streamlit as st
-import pandas as pd
+from pathlib import Path
+import requests
+import speech_recognition as sr
 
 
 
@@ -168,8 +165,8 @@ def deployToSt(APIKEY):
             
             st.session_state["History"] = []
             return
-        
-        answer = GeminiAPI.genAiModel(chat, APIKEY)
+          
+        answer = GeminiAPI().genAiModel(chat, APIKEY)
         
         if answer:
             
