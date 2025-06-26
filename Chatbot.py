@@ -165,8 +165,8 @@ def deployToSt(APIKEY):
             
             st.session_state["History"] = []
             return
-          
-        answer = GeminiAPI().genAiModel(chat, APIKEY)
+        gemini = GeminiAPI()
+        answer = gemini.genAiModel(chat, APIKEY)
         
         if answer:
             
@@ -203,9 +203,6 @@ def storeChat(chat, answer):
 
 # Main function automatically installs all the modules/packages from the requirements document and utilizes the API keys to call other functions
 def main():
-    
-    os.system(f"{sys.executable} -m pip install -r requirements.txt")
-    print("\n Downloaded the required directories \n")
     
     # Load API keys and retrieve API key for Gemini API
     load_dotenv()
