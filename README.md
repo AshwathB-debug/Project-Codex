@@ -6,7 +6,7 @@ Project Codex (aka Cody) is developed to help users simplify their day-to-day ta
 
 
 ## Features
-1. SpeechRecognition: This project utilizes the SpeechRecognition module to be able to speak to the computer, converting spoken words into text that the Chatbot could process to provide a response.
+1. Text to Speech: This project utilizes the pyttsx3 library to be integrate text-to-speech capabilities to the chatbot, converting text that the Chatbot generates into a human-like response.
 2. API key security: The project utilizes an environment file to encrypt API keys from landing into the wrong hands.
 3. Streamlit: Deployed our Chatbot to Streamlit to increase user engagement and productivity by 100% and making a more user-friendly tool.
 
@@ -14,7 +14,8 @@ Project Codex (aka Cody) is developed to help users simplify their day-to-day ta
 ## Usage
 If you'd like to run the project on your own, follow these steps:
 1. Clone the repository or download the files
-2. Open the terminal and type "streamlit run Chatbot.py" and it will automatically download all the required modules/libraries for you and take you to streamlit to interact with Cody.
+2. Run the command "pip install -r requirements.txt" to download all the necessary dependencies to run the project
+2. Open the terminal and type "streamlit run Chatbot.py" and it will take you to streamlit to interact with Cody.
 
 
 ## Learning Resources
