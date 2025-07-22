@@ -5,3 +5,5 @@ python-dotenv
 streamlit
 pathlib2
 pyaudio
+streamlit-mic-recorder
+pydub

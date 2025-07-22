@@ -47,7 +47,7 @@ class GeminiAPI:
         try:
             
             genai.configure(api_key=apiKey)
-            model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest", generation_config = self.generationConfig(),
+            model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest", generation_config = self.generationConfig(),
                                         safety_settings = self.safetySettings())
             convo = model.start_chat(history=[])
             output = convo.send_message(chat, stream=True)
